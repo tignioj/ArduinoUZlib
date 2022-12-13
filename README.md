@@ -1,4 +1,4 @@
-# Arduino zlib库
+# Arduino ulib库，用于解压gzip流
 
 用法:
 
