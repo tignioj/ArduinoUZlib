@@ -9,10 +9,11 @@ stream->readBytes(inbuff, size); // 将http流数据写入inbuff中
 uint8_t *outbuf=NULL; //解压后的输出流
 uint32_t outsize=0; // 解压后多大？在调用解压方法后会被赋值。
 // 调用解压函数
-int result=ArduinoUZlib::decompress(inbuff, readBytesSize, outbuf,outsize);
+int result=ArduinoUZlib::decompress(inbuff, size, outbuf,outsize);
 // 输出解密后的数据到控制台。
-Serial.write(outbuf,outprintsize);
+Serial.write(outbuf,outsize);
 ```
+可以看看example里面的示例
 
 # 参考
 1. https://github.com/pfalcon/uzlib
