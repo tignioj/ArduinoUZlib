@@ -12,8 +12,8 @@ void exit_error(const char *what)
 }
 
 
-//https://www.programcreek.com/cpp/?code=Looking4Group%2FL4G_Core%2FL4G_Core-master%2Ftools%2Flibmpq%2Flibmpq%2Fextract.c
-int32_t ArduinoUZlib::decompress(uint8_t *in_buf, uint32_t in_size, uint8_t *&dest, uint32_t out_size, uint32_t &outprintsize) {
+// https://github.com/pfalcon/uzlib/blob/master/examples/tgunzip/tgunzip.c
+int32_t ArduinoUZlib::decompress(uint8_t *in_buf, uint32_t in_size, uint8_t *&dest, uint32_t &out_size) {
 	if (in_size < 4) exit_error("file too small");
 	unsigned int len,dlen, outlen;
 	unsigned char *source =(unsigned char*)in_buf;
@@ -61,8 +61,8 @@ int32_t ArduinoUZlib::decompress(uint8_t *in_buf, uint32_t in_size, uint8_t *&de
     }
 
     printf("decompressed %lu bytes\n", d.dest - dest);
-	outprintsize= d.dest - dest;
-	return  outprintsize;
+	out_size= d.dest - dest;
+	return  out_size;
 
 
 
